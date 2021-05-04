@@ -12,7 +12,7 @@ router.use('/student/class', student_auth.checkToken, require('./student/class')
 
 //teachers route
 router.use('/teacher/auth', require('./teacher/auth'));
-router.use('/teacher/class', teacher_auth.checkToken, require('./teacher/class'));
+router.use('/teacher/class', teacher_auth.checkSession, require('./teacher/class'));
 
 
 router.use("*", function (req, res) {

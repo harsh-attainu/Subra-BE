@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 router.get("/getall", function (req, res) {
+  console.log(req.session);
   res.json({ msg: "All classes created by you" });
 });
 

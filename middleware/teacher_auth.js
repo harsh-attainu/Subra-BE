@@ -1,11 +1,7 @@
-const checkToken = function (req, res, next) {
-    if (req.headers.token && req.headers.token == "this_is_the_secret_token") {
-      console.log("token correct");
-      next();
-    } else {
-      console.log("token incorrect");
-      res.status(401).send({ error: "You are not authorized" });
-    }
-  }
+const checkSession = function (req, res, next) {
+  if (req.session && req.session.user && req.session.user.logged_in) {
+    next();
+  } else res.status(401).json({ err: "Invalid session" });
+};
 
-module.exports = {checkToken};
+module.exports = { checkSession };
