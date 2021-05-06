@@ -1,0 +1,28 @@
+<u>This is the index file</u>
+{{> myList}}
+<ul>
+{{#each todos}}
+    {{#if this.completed}}
+    <li><strike>{{@index}}. {{this.todo}}</strike></li>
+    {{else}}
+    <li>{{@index}}. {{this.todo}}</li>
+    {{/if}}
+{{/each}}
+</ul>
+
+{{!-- {{#each}} for loop
+
+{{@index}} current index
+{{@first}} first element inside loop
+{{@last}} last element inside the loop
+
+{{#if }} if conditon
+
+{{/if}} closing
+
+{{/each}} closing
+
+{{> partialName}}  import a partial
+
+
+--}}

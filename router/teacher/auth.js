@@ -36,4 +36,17 @@ router.post("/login", function (req, res) {
     }
   });
 
+  router.all('/logout', function(req, res) {
+    req.session.destroy();
+    res.json({code:'success logout'});
+  });
+
+  router.post("/signup2", function (req, res) {
+    if(req.body.email) {
+      res.send('<html><h1>Signup succesffull</h1></html>');
+    } else {
+      res.send('<html>Email problem</html>');
+    }
+  });
+
 module.exports = router;

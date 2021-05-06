@@ -1,13 +1,26 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const utils = require('../../utils');
 
+router.get("/animated", function (req, res) {
+  res.render("animated", { layout: "animated", name: req.query.name });
+});
 
 router.get("/", function (req, res) {
-  const a = 5;
-  const b = 10;
-  const c = utils.multiply(a,b);
-  res.json({ msg: c });
+  const todos = [
+    {
+      todo: "Get milk",
+      completed: true,
+    },
+    {
+      todo: "Get eggs",
+      completed: false,
+    },
+    {
+      todo: "Get bread",
+      completed: false,
+    },
+  ];
+  res.render("index", { layout: "main", todos });
 });
 
 module.exports = router;
